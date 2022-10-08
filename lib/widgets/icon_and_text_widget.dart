@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:food_shop/widgets/small_text.dart';
 
 class IconAndTextWidget extends StatelessWidget {
   final IconData icon;
   final String text;
-
+  final double size;
   final Color iconColor;
 
   const IconAndTextWidget({
@@ -14,6 +15,7 @@ class IconAndTextWidget extends StatelessWidget {
     required this.icon,
     required this.text,
     required this.iconColor,
+    required this.size,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class IconAndTextWidget extends StatelessWidget {
       Icon(
         icon,
         color: iconColor,
+        size: size,
       ),
       SizedBox(
         width: 5.w,

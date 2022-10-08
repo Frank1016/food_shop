@@ -39,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //slider section
         SizedBox(
           height: 320.h,
           child: PageView.builder(
@@ -48,6 +49,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 return _buildPageItem(position);
               }),
         ),
+        //dots
         DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
@@ -57,6 +59,72 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             activeColor: AppColors.mainColor,
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.r)),
+          ),
+        ),
+
+        SizedBox(
+          height: 30.h,
+        ),
+        //popular text
+        Container(
+          margin: EdgeInsets.only(left: 30.w),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(
+                text: 'Popular',
+                size: 20.sp,
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 3.h),
+                child: BigText(
+                  text: '·',
+                  size: 20.sp,
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Container(
+                margin: EdgeInsets.only(bottom: 2.h),
+                child: SmallText(
+                  text: 'Food pairing',
+                  size: 15.sp,
+                ),
+              )
+            ],
+          ),
+        ),
+        //listview section
+        Container(
+          height: 900.h,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(left: 20.w, right: 20.w),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 120.w,
+                      height: 120.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.r),
+                        color: Colors.white38,
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/food1.jpg')),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ],
@@ -167,19 +235,25 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         IconAndTextWidget(
-                            icon: Icons.circle_sharp,
-                            text: 'Normal',
-                            iconColor: AppColors.iconColor1),
+                          icon: Icons.circle_sharp,
+                          text: 'Normal',
+                          iconColor: AppColors.iconColor1,
+                          size: 24.h,
+                        ),
                         IconAndTextWidget(
-                            icon: Icons.location_on,
-                            text: '1.7km',
-                            iconColor: AppColors.mainColor),
+                          icon: Icons.location_on,
+                          text: '1.7km',
+                          iconColor: AppColors.mainColor,
+                          size: 24.h,
+                        ),
                         IconAndTextWidget(
-                            icon: Icons.access_time_rounded,
-                            text: '32min',
-                            iconColor: AppColors.iconColor2),
+                          icon: Icons.access_time_rounded,
+                          text: '32min',
+                          iconColor: AppColors.iconColor2,
+                          size: 24.h,
+                        ),
                       ],
                     ),
                   ],

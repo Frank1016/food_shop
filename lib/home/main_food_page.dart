@@ -47,15 +47,16 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     ),
                     Center(
                       child: Container(
-                        width: 45.w,
+                        width: 45.h,
                         height: 45.h,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15.r),
                           color: AppColors.mainColor,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.search,
                           color: Colors.white,
+                          size: 24.h,
                         ),
                       ),
                     ),
@@ -63,7 +64,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ),
               ),
             ),
-            const FoodPageBody()
+            Expanded(child: SingleChildScrollView(child: const FoodPageBody()))
           ],
         ),
       ),
